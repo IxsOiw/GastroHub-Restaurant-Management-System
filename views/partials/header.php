@@ -20,12 +20,12 @@
         <div
           class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base tw-text-white max-md:tw-mt-[30px] max-md:tw-flex-col max-md:tw-place-items-end max-md:tw-gap-5 md:tw-mx-auto md:tw-place-items-center"
         >
-          <a class="header-links" href=""> About us </a>
-          <a class="header-links" href=""> Menus </a>
-          <a class="header-links" href=""> Contact us </a>
-          <a class="header-links" href="" target="_blank" rel="noreferrer">
-            Order online
-          </a>
+          <a class="header-links" href="/"> Home </a>
+          <a class="header-links" href="/about"> About us </a>
+          <a class="header-links" href="/menu"> Menu </a>
+          <a class="header-links" href="/reservation"> Reservation </a>
+          <a class="header-links" href="/contact"> Contact us </a>
+          <a class="header-links" href="" target="_blank" rel="noreferrer">Order online</a>
         </div>
         <div
           class="tw-flex tw-place-items-center tw-gap-[20px] tw-text-xl max-md:tw-w-full max-md:tw-place-content-center max-md:!tw-text-white"
