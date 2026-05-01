@@ -58,13 +58,14 @@
         <div class="tw-flex tw-gap-4">
           <div class="tw-flex tw-w-full tw-flex-col tw-gap-1">
             <div class="tw-text-gray-500">Time</div>
-            <select name="timings" id="timings" class="input"> 
-             <option value="1">1</option>    
-             <option value="2">2</option>    
-             <option value="3">3</option>    
-             <option value="4">4</option>    
-             <option value="5">5</option>    
-             <option value="6">6</option>    
+            <select name="timing" id="timing" class="input"> 
+             <option value="12:00">12:00</option>    
+             <option value="13:00">13:00</option>    
+             <option value="14:00">14:00</option>    
+             <option value="15:00">15:00</option>    
+             <option value="16:00">16:00</option>    
+             <option value="17:00">17:00</option>    
+             <option value="18:00">18:00</option>    
             </select>
           </div>
 

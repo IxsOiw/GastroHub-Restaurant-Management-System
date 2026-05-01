@@ -1,5 +1,10 @@
 <?php
 
+function title($value)
+{
+    echo $value;
+}
+
 function dd($value)
 {
     echo "<pre>";

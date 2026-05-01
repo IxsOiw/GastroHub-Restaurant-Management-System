@@ -1,5 +1,8 @@
 <?php
 
+use Ixsaiw\Bistro\Controllers\HomeController;
+use Ixsaiw\Bistro\Controllers\ReservationController;
+
 return [
 
     '' =>  \Ixsaiw\Bistro\Controllers\HomeController::class,

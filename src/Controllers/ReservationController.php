@@ -2,8 +2,17 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
+use Ixsaiw\Bistro\Database;
+
 class ReservationController
 {
+    protected $db;
+
+    public function __construct($config)
+    {
+        $this->db = new Database($config['database']);
+    }
+
     public function index()
     {
         $heading = "reservation";
@@ -11,27 +20,26 @@ class ReservationController
         $name = '';
         $phone = '';
         $email = '';
-        $timings = '';
+        $timing = '';
         $date = '';
         $people = '';
 
-        $succes = '';
-        $error = [];
+        $errors = [];
 
-        if (isPostRequest()) {
+        if (\isPostRequest()) {
             $name = trim($_POST['name'] ?? '');
             $phone = trim($_POST['phone'] ?? '');
             $email = trim($_POST['email'] ?? '');
-            $timings = trim($_POST['timings'] ?? '');
             $date = trim($_POST['date'] ?? '');
+            $timing = trim($_POST['timing'] ?? '');
             $people = trim($_POST['people'] ?? '');
 
             if (
                 $name === '' ||
                 $phone === '' ||
                 $email === '' ||
-                $timings === '' ||
                 $date === '' ||
+                $timing === '' ||
                 $people === ''
             ) {
                 echo " <h1>Všetky polia sú povinné. </h1>";
@@ -39,6 +47,11 @@ class ReservationController
 
             if (empty($errors)) {
                 echo " <h1> Rezervácia bola úspešne odoslaná.</h1>";
+
+                $this->db->query(
+                    "INSERT INTO reservation (name, phone, email, timing, people, date) VALUES (?, ?, ?, ?, ?, ?)",
+                    [$name, $phone, $email, $timing, $people ,$date]
+                );
             }
         }
 
