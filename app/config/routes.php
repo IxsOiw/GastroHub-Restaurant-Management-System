@@ -2,10 +2,10 @@
 
 return [
 
-    '' => __DIR__ . '/../../controllers/index.php',
-    '/about' => __DIR__ . '/../../controllers/about.php',
-    '/menu' => __DIR__ . '/../../controllers/menu.php',
-    '/reservation' => __DIR__ . '/../../controllers/reservation.php',
-    '/contact' => __DIR__ . '/../../controllers/contact.php',
+    '' =>  \Ixsaiw\Bistro\Controllers\HomeController::class,
+    '/about' =>  \Ixsaiw\Bistro\Controllers\AboutController::class,
+    '/menu' => \Ixsaiw\Bistro\Controllers\MenuController::class,
+    '/reservation' =>  \Ixsaiw\Bistro\Controllers\ReservationController::class,
+    '/contact' =>  \Ixsaiw\Bistro\Controllers\ContactController::class,
 
 ];

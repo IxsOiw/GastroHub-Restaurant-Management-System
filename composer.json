@@ -1,0 +1,17 @@
+{
+    "name": "ixsaiw/bistro",
+    "description": "Bistro web application",
+    "type": "projet",
+    "autoload": {
+        "psr-4": {
+            "Ixsaiw\\Bistro\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "IxsOiw",
+            "email": "tomas.labos@student.ukf.sk"
+        }
+    ],
+    "require": {}
+}
