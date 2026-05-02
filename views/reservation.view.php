@@ -18,6 +18,21 @@
       </div>
 
       <form method="post" class="tw-mt-4 tw-flex tw-max-w-[350px] tw-flex-col tw-gap-3">
+
+          <?php if (!empty($errors)): ?>
+              <div class="tw-bg-red-100 tw-border tw-border-red-400 tw-text-red-700 tw-rounded tw-p-3 tw-mb-4">
+                  <?php foreach ($errors as $error): ?>
+                      <p><?= $error ?></p>
+                  <?php endforeach; ?>
+              </div>
+          <?php endif; ?>
+
+          <?php if (isset($_GET['success'])): ?>
+              <div class="tw-bg-green-100 tw-border tw-border-green-400 tw-text-green-700 tw-rounded tw-p-3 tw-mb-4">
+                  <p>Reservation successfully submitted!</p>
+              </div>
+          <?php endif; ?>
+
         <div class="tw-flex tw-flex-col tw-gap-4">
           <div class="tw-flex tw-flex-col tw-gap-1">
             <div class="tw-text-gray-500">Name</div>
@@ -26,7 +41,6 @@
               name="name"
               class="input"
               maxlength="10"
-              required
               placeholder="name"
             />
           </div>
@@ -37,7 +51,7 @@
               type="text" 
               name="phone"
               class="input" 
-              required placeholder="phone" 
+              placeholder="phone" 
             />
           </div>
 
@@ -47,7 +61,6 @@
               type="email"
               name="email"
               class="input"
-              required
               placeholder="email"
               id="email"
             />
@@ -75,7 +88,6 @@
               type="date"
               name="date"
               class="input"
-              required
               placeholder="date"
               id="date"
             />
