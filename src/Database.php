@@ -8,13 +8,13 @@ class Database
 {
     public $connection;
 
-    public function __construct($database, $name = 'root', $password = 'root')
+    public function __construct($database)
     {
         $dsn = "mysql:host={$database['host']};port={$database['port']};dbname={$database['dbname']};charset={$database['charset']}";
         $this->connection = new PDO(
             $dsn,
-            $name,
-            $password,
+            $database['user'],
+            $database['password'],
             [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
