@@ -16,5 +16,7 @@
       "email": "tomas.labos@student.ukf.sk"
     }
   ],
-  "require": {}
+  "require": {
+    "vlucas/phpdotenv": "^5.6"
+  }
 }
