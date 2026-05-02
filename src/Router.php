@@ -3,7 +3,6 @@
 namespace Ixsaiw\Bistro;
 
 $URI = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$URI = str_replace('/websites/bistro/public', '', $URI);
 $URI = rtrim($URI, '/') ?: '';
 
 $routes = require __DIR__ . '/config/routes.php';
