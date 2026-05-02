@@ -8,10 +8,9 @@ $dotenv->load();
 return  [
   'database' => [
 
-    'host' => 'localhost',
-    'port' => 8889,
-    'dbname' => 'bistro',
+    'host' => $_ENV['DB_HOST'],
+    'port' => (int) $_ENV['DB_PORT'],
+    'dbname' => $_ENV['DB_NAME'],
     'charset' => 'utf8mb4'
-
   ]
 ];

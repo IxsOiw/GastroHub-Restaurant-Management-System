@@ -1,14 +1,17 @@
 <?php
 
 use Ixsaiw\Bistro\Controllers\HomeController;
+use Ixsaiw\Bistro\Controllers\AboutController;
+use Ixsaiw\Bistro\Controllers\MenuController;
 use Ixsaiw\Bistro\Controllers\ReservationController;
+use Ixsaiw\Bistro\Controllers\ContactController;
 
 return [
 
-    '' =>  \Ixsaiw\Bistro\Controllers\HomeController::class,
-    '/about' =>  \Ixsaiw\Bistro\Controllers\AboutController::class,
-    '/menu' => \Ixsaiw\Bistro\Controllers\MenuController::class,
-    '/reservation' =>  \Ixsaiw\Bistro\Controllers\ReservationController::class,
-    '/contact' =>  \Ixsaiw\Bistro\Controllers\ContactController::class,
+    '' =>  HomeController::class,
+    '/about' =>  AboutController::class,
+    '/menu' => MenuController::class,
+    '/reservation' =>  ReservationController::class,
+    '/contact' =>  ContactController::class,
 
 ];
