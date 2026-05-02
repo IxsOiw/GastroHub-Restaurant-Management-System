@@ -1,10 +1,5 @@
 <?php
 
-function title($value)
-{
-    echo $value;
-}
-
 function dd($value)
 {
     echo "<pre>";
@@ -18,4 +13,9 @@ function dd($value)
 function isPostRequest()
 {
     return $_SERVER['REQUEST_METHOD'] === 'POST';
+}
+
+function sanitize(string $value): string
+{
+    return htmlspecialchars(trim($value), ENT_QUOTES, 'UTF-8');
 }
