@@ -10,9 +10,10 @@ $routes = require __DIR__ . '/config/routes.php';
 function routeToController($URI, $routes, $config)
 {
     if (array_key_exists($URI, $routes)) {
-        $controllerClass = $routes[$URI];
+        [$controllerClass, $method] = $routes[$URI];
+
         $controller = new $controllerClass($config);
-        $controller->index();
+        $controller->$method();
     } else {
         abort();
     }

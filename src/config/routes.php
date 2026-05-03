@@ -11,12 +11,15 @@ use Ixsaiw\Bistro\Controllers\AdminLogoutController;
 
 return [
 
-    '' =>  HomeController::class,
-    '/about' =>  AboutController::class,
-    '/menu' => MenuController::class,
-    '/reservation' =>  ReservationController::class,
-    '/contact' =>  ContactController::class,
-    '/admin' => AdminController::class,
-    '/admin-login' => AdminLoginController::class,
-    '/admin-logout' => AdminLogoutController::class,
+    '' =>  [HomeController::class, 'index'],
+    '/about' =>  [AboutController::class, 'index'],
+    '/menu' => [MenuController::class, 'index'],
+    '/reservation' =>  [ReservationController::class, 'index'],
+    '/contact' =>  [ContactController::class, 'index'],
+
+    '/admin' => [AdminController::class, 'index'],
+    '/admin/reservation/status' => [AdminController::class, 'updateStatus'],
+
+    '/admin-login' => [AdminLoginController::class, 'index'],
+    '/admin-logout' => [AdminLogoutController::class, 'index'],
 ];
