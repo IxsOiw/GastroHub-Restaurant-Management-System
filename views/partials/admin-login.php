@@ -32,7 +32,7 @@
         Nesprávne meno alebo heslo.
       </div>
  
-      <form action="/admin/login" method="POST">
+      <form action="/admin-login" method="POST">
  
         <!-- CSRF token — doplniť v PHP -->
         <!-- <input type="hidden" name="csrf_token" value="<?= $csrfToken ?>"> -->

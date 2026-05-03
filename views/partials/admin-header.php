@@ -4,6 +4,11 @@
       <img src="/assets/bistro-white.png" alt="Bistro logo" />
       Bistro <span>/ Admin</span>
     </div>
+
+    <a href="/admin-logout" class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.5);">
+        <i class="bi bi-box-arrow-right"></i>
+        Odhlásiť
+    </a>
  
     <div class="header-right">
       <button class="notif-btn" title="Notifikácie">

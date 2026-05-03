@@ -6,7 +6,10 @@ class AdminController
 {
     public function index()
     {
-        $heading = "About";
+        if (empty($_SESSION['admin'])) {
+            redirect('/admin-login');
+        }
+        $heading = "Admin";
         require __DIR__ . '/../../views/admin.view.php';
     }
 }
