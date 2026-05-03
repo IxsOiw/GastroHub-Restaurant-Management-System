@@ -28,4 +28,24 @@ class AdminController
         $heading = "Admin";
         require __DIR__ . '/../../views/admin.view.php';
     }
+    public function updateStatus()
+    {
+        if (empty($_SESSION['admin'])) {
+            redirect('/admin-login');
+        }
+
+        $id = $_POST['id'] ?? null;
+        $status = $_POST['status'] ?? null;
+
+        if ($id === null || $status === null) {
+            redirect('/admin');
+        }
+
+        $this->db->query(
+            "UPDATE reservation SET status = ? WHERE id = ?",
+            [$status, $id]
+        );
+
+        redirect('/admin');
+    }
 }
