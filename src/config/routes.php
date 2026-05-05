@@ -22,4 +22,12 @@ return [
 
     '/admin-login' => [AdminLoginController::class, 'index'],
     '/admin-logout' => [AdminLogoutController::class, 'index'],
+
+    '/menu/coffee'    => [MenuController::class, 'category'],
+    '/menu/lunch'     => [MenuController::class, 'category'],
+    '/menu/dinner'    => [MenuController::class, 'category'],
+    '/menu/breakfast' => [MenuController::class, 'category'],
+    '/menu/drinks'    => [MenuController::class, 'category'],
+    '/menu/desserts'  => [MenuController::class, 'category'],
+
 ];

@@ -4,7 +4,6 @@
 
 <?php require __DIR__ . '/partials/header.php'; ?>
 
-<?php require __DIR__ . '/partials/hero.php'; ?>
 
 <main>
   <div>
@@ -13,7 +12,6 @@
 </main>
 
 <?php require __DIR__ . '/partials/menu.php'; ?>
-<?php require __DIR__ . '/partials/reservation.php'; ?>
 
 <?php require __DIR__ . '/partials/footer.php'; ?>
 <?php require __DIR__ . '/partials/modal.php'; ?>
