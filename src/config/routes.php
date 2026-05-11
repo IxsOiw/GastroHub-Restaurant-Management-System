@@ -8,6 +8,7 @@ use Ixsaiw\Bistro\Controllers\ContactController;
 use Ixsaiw\Bistro\Controllers\AdminController;
 use Ixsaiw\Bistro\Controllers\AdminLoginController;
 use Ixsaiw\Bistro\Controllers\AdminLogoutController;
+use Ixsaiw\Bistro\Controllers\MenuAdminController;
 
 return [
 
@@ -20,7 +21,12 @@ return [
     '/admin' => [AdminController::class, 'index'],
     '/admin/reservation/status' => [AdminController::class, 'updateStatus'],
     '/admin/reservation/delete' => [AdminController::class, 'deleteReservation'],
-
+    '/admin/menu'         => [MenuAdminController::class, 'index'],
+    '/admin/menu/create'  => [MenuAdminController::class, 'create'],
+    '/admin/menu/store'   => [MenuAdminController::class, 'store'],
+    '/admin/menu/edit'    => [MenuAdminController::class, 'edit'],
+    '/admin/menu/update'  => [MenuAdminController::class, 'update'],
+    '/admin/menu/delete'  => [MenuAdminController::class, 'destroy'],
     '/admin-login' => [AdminLoginController::class, 'index'],
     '/admin-logout' => [AdminLogoutController::class, 'index'],
 

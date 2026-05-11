@@ -40,6 +40,10 @@ class AdminController
             "SELECT COUNT(*) AS pocet FROM menu_items"
         );
 
+        $items = $this->db->getAll(
+            "SELECT * FROM menu_items ORDER BY category, name LIMIT 10"
+        );
+
         $heading = "Admin";
         require __DIR__ . '/../../views/admin.view.php';
     }
