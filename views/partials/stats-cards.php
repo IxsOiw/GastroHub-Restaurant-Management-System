@@ -5,10 +5,15 @@
         <div class="stat-label">Rezervácie dnes</div>
         <div class="stat-value"> 
 
-          <?php echo $reservationCount['pocet']; ?>
+          <?php echo $todayReservations['pocet']; ?>
 
         </div>
-        <div class="stat-change up"><i class="bi bi-arrow-up"></i> +3 vs včera</div>
+        <div class="stat-change up"> 
+            <i class="bi bi-arrow-up"></i> 
+          
+          <?= $yesterdayReservations['pocet']; ?> v včera 
+
+        </div>
       </div>
  
       <div class="stat-card">

@@ -23,8 +23,16 @@ class AdminController
         $reservations = $this->db->getAll(
             "SELECT * FROM reservation ORDER BY date DESC, timing DESC LIMIT 5"
         );
-        $reservationCount = $this->db->get(
-            "SELECT COUNT(*) AS pocet FROM reservation"
+        $todayReservations = $this->db->get(
+            "SELECT COUNT(*) AS pocet 
+     FROM reservation 
+     WHERE DATE(date) = CURDATE()"
+        );
+
+        $yesterdayReservations = $this->db->get(
+            "SELECT COUNT(*) AS pocet 
+     FROM reservation 
+     WHERE DATE(date) = CURDATE() - INTERVAL 1 DAY"
         );
 
 
