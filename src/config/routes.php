@@ -19,6 +19,7 @@ return [
 
     '/admin' => [AdminController::class, 'index'],
     '/admin/reservation/status' => [AdminController::class, 'updateStatus'],
+    '/admin/reservation/delete' => [AdminController::class, 'deleteReservation'],
 
     '/admin-login' => [AdminLoginController::class, 'index'],
     '/admin-logout' => [AdminLogoutController::class, 'index'],

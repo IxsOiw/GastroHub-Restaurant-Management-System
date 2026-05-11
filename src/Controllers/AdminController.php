@@ -27,7 +27,7 @@ class AdminController
         $todayReservations = $this->db->get(
             "SELECT COUNT(*) AS pocet 
             FROM reservation 
-              WHERE DATE(date) = CURDATE()"
+              WHERE DATE(created_at) = CURDATE()"
         );
 
         $yesterdayReservations = $this->db->get(
@@ -59,6 +59,25 @@ class AdminController
         $this->db->query(
             "UPDATE reservation SET status = ? WHERE id = ?",
             [$status, $id]
+        );
+
+        redirect('/admin');
+    }
+    public function deleteReservation()
+    {
+        if (empty($_SESSION['admin'])) {
+            redirect('/admin');
+        }
+
+        $id = $_POST['id'] ?? null;
+
+        if ($id === null) {
+            redirect('/admin');
+        }
+
+        $this->db->query(
+            "DELETE FROM reservation WHERE id = ?",
+            [$id]
         );
 
         redirect('/admin');

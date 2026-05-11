@@ -59,6 +59,10 @@
                       </form>
 
                     <?php endif; ?>
+                          <form method="POST" action="/admin/reservation/delete" style="display:inline;">
+                    <input type="hidden" name="id" value="<?= $reservation['id'] ?>">
+                    <button class="btn btn-danger btn-sm" onclick="return confirm('Naozaj zmazať rezerváciu?')">DELETE</button>
+                  </form>
 
                   </div>
                 </td>
