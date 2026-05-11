@@ -3,7 +3,11 @@
       <div class="stat-card">
         <div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
         <div class="stat-label">Rezervácie dnes</div>
-        <div class="stat-value">12</div>
+        <div class="stat-value"> 
+
+          <?php echo $reservationCount['pocet']; ?>
+
+        </div>
         <div class="stat-change up"><i class="bi bi-arrow-up"></i> +3 vs včera</div>
       </div>
  
