@@ -23,18 +23,22 @@ class AdminController
         $reservations = $this->db->getAll(
             "SELECT * FROM reservation ORDER BY date DESC, timing DESC LIMIT 5"
         );
+
         $todayReservations = $this->db->get(
             "SELECT COUNT(*) AS pocet 
-     FROM reservation 
-     WHERE DATE(date) = CURDATE()"
+            FROM reservation 
+              WHERE DATE(date) = CURDATE()"
         );
 
         $yesterdayReservations = $this->db->get(
             "SELECT COUNT(*) AS pocet 
-     FROM reservation 
-     WHERE DATE(date) = CURDATE() - INTERVAL 1 DAY"
+            FROM reservation 
+            WHERE DATE(date) = CURDATE() - INTERVAL 1 DAY"
         );
 
+        $menuItemsCount = $this->db->get(
+            "SELECT COUNT(*) AS pocet FROM menu_items"
+        );
 
         $heading = "Admin";
         require __DIR__ . '/../../views/admin.view.php';

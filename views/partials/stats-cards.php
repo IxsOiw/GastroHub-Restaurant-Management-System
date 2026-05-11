@@ -26,7 +26,7 @@
       <div class="stat-card">
         <div class="stat-icon"><i class="bi bi-journal-text"></i></div>
         <div class="stat-label">Položky menu</div>
-        <div class="stat-value">38</div>
+        <div class="stat-value"> <?= $menuItemsCount['pocet']; ?> </div>
         <div class="stat-change">v 5 kategóriách</div>
       </div>
  
