@@ -17,7 +17,7 @@
             <form method="POST" action="<?= isset($item) ? '/admin/menu/update' : '/admin/menu/store' ?>">
 
                 <?php if (isset($item)): ?>
-                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                    <input type="hidden" name="id" value="<?= $item['food_id'] ?>">
                 <?php endif; ?>
 
                 <div style="margin-bottom: 16px;">
@@ -37,13 +37,13 @@
 
                 <div style="margin-bottom: 16px;">
                     <label style="display:block; margin-bottom:6px;">Kategória</label>
-                    <select name="category" style="width:100%; padding:8px; border:1px solid #ddd; border-radius:6px;">
-                        <?php
-                        $categories = ['coffee', 'breakfast', 'lunch', 'dinner', 'drinks', 'desserts'];
-foreach ($categories as $cat):
-    $selected = (isset($item) && strtolower($item['category']) === $cat) ? 'selected' : '';
-    ?>
-                            <option value="<?= $cat ?>" <?= $selected ?>><?= ucfirst($cat) ?></option>
+                    <select name="food_category_id" style="width:100%; padding:8px; border:1px solid #ddd; border-radius:6px;">
+                        <option value="">-- vyber --</option>
+                        <?php foreach ($categories as $cat): ?>
+                            <option value="<?= $cat['food_category_id'] ?>" 
+                                <?= (isset($item) && $item['food_category_id'] == $cat['food_category_id']) ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($cat['name']) ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                 </div>

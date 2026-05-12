@@ -19,7 +19,13 @@ class MenuAdminController
             redirect('/admin-login');
         }
 
-        $items = $this->db->getAll("SELECT * FROM menu_items ORDER BY category, name");
+        $items = $this->db->getAll(
+            "SELECT f.*, fc.name AS category_name 
+             FROM food f
+             LEFT JOIN food_category fc ON f.food_category_id = fc.food_category_id
+             ORDER BY fc.name, f.name"
+        );
+
         require __DIR__ . '/../../views/admin.menu.view.php';
     }
 
@@ -28,6 +34,8 @@ class MenuAdminController
         if (empty($_SESSION['admin'])) {
             redirect('/admin-login');
         }
+
+        $categories = $this->db->getAll("SELECT * FROM food_category ORDER BY name");
         require __DIR__ . '/../../views/admin.menu.form.view.php';
     }
 
@@ -40,12 +48,12 @@ class MenuAdminController
         $name        = sanitize($_POST['name'] ?? '');
         $description = sanitize($_POST['description'] ?? '');
         $price       = (float) ($_POST['price'] ?? 0);
-        $category    = sanitize($_POST['category'] ?? '');
+        $categoryId    = sanitize($_POST['food_category_id'] ?? 0);
         $available   = isset($_POST['available']) ? 1 : 0;
 
         $this->db->query(
-            "INSERT INTO menu_items (name, description, price, category, available) VALUES (?, ?, ?, ?, ?)",
-            [$name, $description, $price, $category, $available]
+            "INSERT INTO food (name, description, price, food_category_id, available) VALUES (?, ?, ?, ?, ?)",
+            [$name, $description, $price, $categoryId, $available]
         );
 
         redirect('/admin/menu');
@@ -62,7 +70,9 @@ class MenuAdminController
             redirect('/admin/menu');
         }
 
-        $item = $this->db->get("SELECT * FROM menu_items WHERE id = ?", [$id]);
+        $item = $this->db->get("SELECT * FROM food WHERE food_id = ?", [$id]);
+        $categories = $this->db->getAll("SELECT * FROM food_category ORDER BY name");
+
         require __DIR__ . '/../../views/admin.menu.form.view.php';
     }
 
@@ -76,12 +86,12 @@ class MenuAdminController
         $name        = sanitize($_POST['name'] ?? '');
         $description = sanitize($_POST['description'] ?? '');
         $price       = (float) ($_POST['price'] ?? 0);
-        $category    = sanitize($_POST['category'] ?? '');
+        $categoryId    = sanitize($_POST['food_category_id'] ?? '');
         $available   = isset($_POST['available']) ? 1 : 0;
 
         $this->db->query(
-            "UPDATE menu_items SET name=?, description=?, price=?, category=?, available=? WHERE id=?",
-            [$name, $description, $price, $category, $available, $id]
+            "UPDATE food SET name=?, description=?, price=?, food_category_id=?, available=? WHERE food_id=?",
+            [$name, $description, $price, $categoryId, $available, $id]
         );
 
         redirect('/admin/menu');
@@ -95,7 +105,7 @@ class MenuAdminController
 
         $id = $_POST['id'] ?? null;
         if ($id) {
-            $this->db->query("DELETE FROM menu_items WHERE id = ?", [$id]);
+            $this->db->query("DELETE FROM food WHERE food_id = ?", [$id]);
         }
 
         redirect('/admin/menu');

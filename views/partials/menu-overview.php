@@ -20,7 +20,7 @@
            <?php foreach ($items as $item): ?>
             <tr>
                 <td><?= htmlspecialchars($item['name']) ?></td>
-                <td><?= htmlspecialchars($item['category']) ?></td>
+                <td><?= htmlspecialchars($item['category_name']) ?></td>
                 <td style="font-weight:800; color:var(--primary)">€<?= number_format($item['price'], 2) ?></td>
                 <td>
                     <?php if ($item['available']): ?>
@@ -30,7 +30,7 @@
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a href="/admin/menu/edit?id=<?= $item['id'] ?>" class="btn btn-outline btn-sm">Upraviť</a>
+                    <a href="/admin/menu/edit?id=<?= $item['food_id'] ?>" class="btn btn-outline btn-sm">Upraviť</a>
                 </td>
             </tr>
             <?php endforeach; ?>
