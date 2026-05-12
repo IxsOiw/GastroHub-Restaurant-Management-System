@@ -25,7 +25,7 @@
           <a class="header-links" href="/menu"> Menu </a>
           <a class="header-links" href="/reservation"> Reservation </a>
           <a class="header-links" href="/contact"> Contact us </a>
-          <a class="header-links" href="" target="_blank" rel="noreferrer">Order online</a>
+          <a class="header-links" href="/order">Order online</a>
         </div>
         <div
           class="tw-flex tw-place-items-center tw-gap-[20px] tw-text-xl max-md:tw-w-full max-md:tw-place-content-center max-md:!tw-text-white"

@@ -9,6 +9,7 @@ use Ixsaiw\Bistro\Controllers\AdminController;
 use Ixsaiw\Bistro\Controllers\AdminLoginController;
 use Ixsaiw\Bistro\Controllers\AdminLogoutController;
 use Ixsaiw\Bistro\Controllers\MenuAdminController;
+use Ixsaiw\Bistro\Controllers\OrderController;
 
 return [
 
@@ -36,5 +37,8 @@ return [
     '/menu/breakfast' => [MenuController::class, 'category'],
     '/menu/drinks'    => [MenuController::class, 'category'],
     '/menu/desserts'  => [MenuController::class, 'category'],
+
+    '/order'       => [OrderController::class, 'index'],
+    '/order/store' => [OrderController::class, 'store'],
 
 ];
