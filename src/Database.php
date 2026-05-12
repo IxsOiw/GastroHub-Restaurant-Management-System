@@ -39,4 +39,9 @@ class Database
         return $this->query($query, $params)->fetch();
     }
 
+    public function lastInsertId()
+    {
+        return $this->connection->lastInsertId();
+    }
+
 }

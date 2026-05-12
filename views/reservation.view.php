@@ -4,7 +4,6 @@
 
 <?php require __DIR__ . '/partials/header.php'; ?>
 
-
   <section class="tw-flex tw-w-full tw-place-content-center tw-place-items-center tw-gap-[10%] tw-overflow-hidden tw-bg-[#EFEFEF] tw-p-4 tw-px-[10%] max-md:tw-flex-col">  
 
   <div class="tw-mt-[5%] tw-flex tw-h-full tw-flex-col tw-gap-[5%]">
@@ -71,57 +70,58 @@
         <div class="tw-flex tw-gap-4">
           <div class="tw-flex tw-w-full tw-flex-col tw-gap-1">
             <div class="tw-text-gray-500">Time</div>
-            <select name="timing" id="timing" class="input"> 
-             <option value="12:00">12:00</option>    
-             <option value="13:00">13:00</option>    
-             <option value="14:00">14:00</option>    
-             <option value="15:00">15:00</option>    
-             <option value="16:00">16:00</option>    
-             <option value="17:00">17:00</option>    
-             <option value="18:00">18:00</option>    
+            <select name="time" class="input"> 
+                <?php foreach (['12:00','13:00','14:00','15:00','16:00','17:00','18:00'] as $t): ?>
+                    <option value="<?= $t ?>" <?= $time === $t ? 'selected' : '' ?>><?= $t ?></option>
+                <?php endforeach; ?> 
             </select>
           </div>
 
           <div class="tw-flex tw-flex-col tw-gap-1">
             <div class="tw-text-gray-500">Date</div>
-            <input
-              type="date"
-              name="date"
-              class="input"
-              placeholder="date"
-              id="date"
-            />
+                <input type="date" name="date" class="input" value="<?= htmlspecialchars($date) ?>"/>
           </div>
         </div>
 
         <div class="tw-flex tw-w-full tw-gap-4 max-md:tw-flex-col">
           <div class="tw-flex tw-w-full tw-flex-col tw-gap-1">
-            <div class="tw-text-gray-500">People</div>
-            <input 
-              type="number" 
-              name="people"
-              value="2" 
-              min="0" 
-              max="15" 
-              class="input" 
-            />
+            <div class="tw-text-gray-500">Guests</div>
+                <input type="number" name="guests" value="<?= htmlspecialchars($guests) ?: '2' ?>" min="1" max="15" class="input"/>
           </div>
         </div>
+        
+        <div class="tw-flex tw-w-full tw-flex-col tw-gap-1">
+            <div class="tw-text-gray-500">Table</div>
+            <select name="table_id" class="input">
+                <option value="">-- select --</option>
+                <?php foreach ($tables as $table): ?>
+                    <option value="<?= $table['table_id'] ?>" <?= $tableId == $table['table_id'] ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($table['name']) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
 
-        <button
-          type="submit"
-          class="btn tw-ml-auto tw-mt-5 tw-transition-transform tw-duration-[0.3s] hover:tw-translate-x-2"
-        >
-          <span>Book table</span>
-          <i class="bi bi-arrow-right"></i>
+          <div class="tw-flex tw-flex-col tw-gap-1">
+            <div class="tw-text-gray-500">Note</div>
+            <textarea name="note" class="input" rows="3" placeholder="Special requests..."><?= htmlspecialchars($note) ?></textarea>
+          </div>
+
+          <button type="submit" class="btn tw-ml-auto tw-mt-5 tw-transition-transform tw-duration-[0.3s] hover:tw-translate-x-2">
+            <span>Book table</span>
+            <i class="bi bi-arrow-right"></i>
         </button>
 
-      </form>
+  </form>
 
       <div class="tw-mt-4 tw-flex tw-flex-col tw-gap-2 tw-text-center">
+
         <h3 class="tw-text-xl">To book call</h3>
         <div class="primary-text-color tw-text-3xl">+123 232 123</div>
+
       </div>
+
 </section>
 
 <?php require __DIR__ . '/partials/reservation.php'; ?>

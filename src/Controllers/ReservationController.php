@@ -16,22 +16,28 @@ class ReservationController
     public function index()
     {
         $heading = "reservation";
+        $errors = [];
+
+        $tables = $this->db->getAll("SELECT * FROM restaurant_table ORDER BY name");
 
         $name = '';
         $phone = '';
         $email = '';
-        $timing = '';
+        $time = '';
         $date = '';
-        $people = '';
-        $errors = [];
+        $guests = '';
+        $note = '';
+        $tableId = '';
 
         if (isPostRequest()) {
             $name = sanitize($_POST['name'] ?? '');
             $phone = sanitize($_POST['phone'] ?? '');
             $email = sanitize($_POST['email'] ?? '');
             $date = sanitize($_POST['date'] ?? '');
-            $timing = sanitize($_POST['timing'] ?? '');
-            $people = sanitize($_POST['people'] ?? '');
+            $time = sanitize($_POST['time'] ?? '');
+            $guests = sanitize($_POST['guests'] ?? '');
+            $note    = sanitize($_POST['note']      ?? '');
+            $tableId = sanitize($_POST['table_id']  ?? '');
 
             if ($name === '') {
                 $errors[] = 'Name is required.';
@@ -45,18 +51,29 @@ class ReservationController
             if ($date === '') {
                 $errors[] = 'Date is required.';
             }
-            if ($timing === '') {
+            if ($time === '') {
                 $errors[] = 'Time is required.';
             }
-            if ($people === '') {
+            if ($guests  === '') {
                 $errors[] = 'Number of guests is required.';
+            }
+            if ($tableId === '') {
+                $errors[] = 'Table is required.';
             }
 
             if (empty($errors)) {
                 $this->db->query(
-                    "INSERT INTO reservation (name, phone, email, timing, people, date) VALUES (?, ?, ?, ?, ?, ?)",
-                    [$name, $phone, $email, $timing, $people ,$date]
+                    "INSERT INTO customer (name, phone, email) VALUES (?, ?, ?)",
+                    [$name, $phone, $email]
                 );
+                $customerId = $this->db->lastInsertId();
+
+                $this->db->query(
+                    "INSERT INTO reservation (customer_id, table_id, date, time, number_of_guests, note) 
+                     VALUES (?, ?, ?, ?, ?, ?)",
+                    [$customerId, $tableId, $date, $time, $guests, $note]
+                );
+
                 header('Location: /reservation?success=1');
                 exit;
             }

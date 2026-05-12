@@ -8,6 +8,7 @@
           <thead>
             <tr>
               <th>Hosť</th>
+              <th>Stôl</th>
               <th>Čas</th>
               <th>Osoby</th>
               <th>Dátum rezervácie</th>
@@ -18,14 +19,14 @@
           <tbody>
             <?php foreach ($reservations as $reservation): ?>
               <tr>
+                <td><?= htmlspecialchars($reservation['name']) ?></td>
+                <td><?= htmlspecialchars($reservation['table_name']) ?></td>
+                <td><?= htmlspecialchars($reservation['time']) ?></td>
+                <td><?= htmlspecialchars($reservation['number_of_guests']) ?></td>
+                <td> <?= date('d.m.Y', strtotime($reservation['date'])) ?></td>
                 <td>
-                  <?= htmlspecialchars($reservation['name']) ?>
-                </td>
-                <td><?= htmlspecialchars($reservation['timing']) ?></td>
-                <td><?= htmlspecialchars($reservation['people']) ?></td>
-                 <td> <?= date('d.m.Y', strtotime($reservation['date'])) ?></td>
-                <td>
-                <div style="display:flex; align-items:center; gap:10px;">
+
+                  <div style="display:flex; align-items:center; gap:10px;">
 
                   <?php
                   $statusMap = [
@@ -34,8 +35,7 @@
                     2 => ['class' => 'badge-cancelled', 'text' => 'Zrušená'],
                   ];
 
-                $status = (int) ($reservation['status'] ?? 0);
-
+                $status = (int) ($reservation['reservation_status_id'] ?? 1);
                 $class = $statusMap[$status]['class'] ?? 'badge-new';
                 $text  = $statusMap[$status]['text'] ?? 'Neznámy';
                 ?>
@@ -59,8 +59,9 @@
                       </form>
 
                     <?php endif; ?>
-                          <form method="POST" action="/admin/reservation/delete" style="display:inline;">
-                    <input type="hidden" name="id" value="<?= $reservation['id'] ?>">
+
+                  <form method="POST" action="/admin/reservation/delete" style="display:inline;">
+                    <input type="hidden" name="id" value="<?= $reservation['reservation_id'] ?>">
                     <button class="btn btn-danger btn-sm" onclick="return confirm('Naozaj zmazať rezerváciu?')">DELETE</button>
                   </form>
 
