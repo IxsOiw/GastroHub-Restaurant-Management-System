@@ -10,7 +10,7 @@ class AdminLoginController
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
 
-            if ($email === 'admin@bistro.sk' && $password === 'admin') {
+            if ($email === 'admin@bistro.sk' && password_verify($password, $_ENV['ADMIN_PASSWORD_HASH'])) {
 
                 $_SESSION['admin'] = true;
                 redirect('/admin');
