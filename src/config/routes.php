@@ -14,34 +14,46 @@ use Ixsaiw\Bistro\Controllers\AdminOrderController;
 
 return [
 
-    '' =>  [HomeController::class, 'index'],
-    '/about' =>  [AboutController::class, 'index'],
-    '/menu' => [MenuController::class, 'index'],
-    '/reservation' =>  [ReservationController::class, 'index'],
-    '/contact' =>  [ContactController::class, 'index'],
+  '' => [ 'GET' => [HomeController::class, 'index'],  ],
 
-    '/admin' => [AdminController::class, 'index'],
-    '/admin/reservation/status' => [AdminController::class, 'updateStatus'],
-    '/admin/reservation/delete' => [AdminController::class, 'deleteReservation'],
-    '/admin/menu'         => [MenuAdminController::class, 'index'],
-    '/admin/menu/create'  => [MenuAdminController::class, 'create'],
-    '/admin/menu/store'   => [MenuAdminController::class, 'store'],
-    '/admin/menu/edit'    => [MenuAdminController::class, 'edit'],
-    '/admin/menu/update'  => [MenuAdminController::class, 'update'],
-    '/admin/menu/delete'  => [MenuAdminController::class, 'destroy'],
-    '/admin/orders'               => [AdminOrderController::class, 'index'],
-    '/admin/orders/update-status' => [AdminOrderController::class, 'updateStatus'],
-    '/admin-login' => [AdminLoginController::class, 'index'],
-    '/admin-logout' => [AdminLogoutController::class, 'index'],
+  '/about' => [ 'GET' => [AboutController::class, 'index'],  ],
 
-    '/menu/coffee'    => [MenuController::class, 'category'],
-    '/menu/lunch'     => [MenuController::class, 'category'],
-    '/menu/dinner'    => [MenuController::class, 'category'],
-    '/menu/breakfast' => [MenuController::class, 'category'],
-    '/menu/drinks'    => [MenuController::class, 'category'],
-    '/menu/desserts'  => [MenuController::class, 'category'],
+  '/menu' =>           [  'GET' => [MenuController::class, 'index'],    ],
+  '/menu/coffee'    => [  'GET' => [MenuController::class, 'category'], ],
+  '/menu/lunch'     => [  'GET' => [MenuController::class, 'category'], ],
+  '/menu/dinner'    => [  'GET' => [MenuController::class, 'category'], ],
+  '/menu/breakfast' => [  'GET' => [MenuController::class, 'category'], ],
+  '/menu/drinks'    => [  'GET' => [MenuController::class, 'category'], ],
+  '/menu/desserts'  => [  'GET' => [MenuController::class, 'category'], ],
 
-    '/order'       => [OrderController::class, 'index'],
-    '/order/store' => [OrderController::class, 'store'],
+  '/reservation' => [ 'GET' => [ReservationController::class, 'index'],
+                      'POST' => [ReservationController::class, 'index'],],
+
+  '/contact' => [ 'GET' => [ContactController::class, 'index'], ],
+
+  '/order'       => [ 'GET' => [OrderController::class, 'index'], ],
+  '/order/store' => [ 'POST' => [OrderController::class, 'store'],  ],
+
+
+  '/admin' => [ 'GET' => [AdminController::class, 'index'], ],
+
+  '/admin/reservation/status' => [  'POST' => [AdminController::class, 'updateStatus'],],
+  '/admin/reservation/delete' => [  'POST' => [AdminController::class, 'deleteReservation'],],
+
+  '/admin/menu'         => ['GET' => [MenuAdminController::class, 'index'],],
+  '/admin/menu/create'  => ['GET' => [MenuAdminController::class, 'create'],],
+  '/admin/menu/store'   => ['POST' => [MenuAdminController::class, 'store'],],
+  '/admin/menu/edit'    => ['GET' => [MenuAdminController::class, 'edit'],],
+  '/admin/menu/update'  => ['POST' => [MenuAdminController::class, 'update'],],
+  '/admin/menu/delete'  => ['POST' => [MenuAdminController::class, 'destroy'],],
+
+  '/admin/orders'               => ['GET' => [AdminOrderController::class, 'index'],],
+  '/admin/orders/update-status' => ['POST' => [AdminOrderController::class, 'updateStatus'],],
+
+  '/admin-login' => ['GET' => [AdminLoginController::class, 'index'],
+                      'POST' => [AdminLoginController::class, 'index'],],
+  '/admin-logout' => [ 'GET' => [AdminLogoutController::class, 'index'],],
+
+
 
 ];
