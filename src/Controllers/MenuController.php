@@ -19,7 +19,10 @@ class MenuController
         $category = basename($uri); // "coffee", "lunch"...
 
         $items = $this->db->getAll(
-            "SELECT * FROM menu_items WHERE LOWER(category) = ? AND available = 1 ORDER BY name ASC",
+            "SELECT f.* FROM food f
+            JOIN food_category fc ON f.food_category_id = fc.food_category_id
+            WHERE LOWER(fc.name) = ? AND f.available = 1
+            ORDER BY f.name ASC",
             [strtolower($category)]
         );
 
