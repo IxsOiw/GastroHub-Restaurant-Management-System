@@ -30,9 +30,9 @@
 
                   <?php
                   $statusMap = [
-                    0 => ['class' => 'badge-new', 'text' => 'Nová'],
-                    1 => ['class' => 'badge-confirmed', 'text' => 'Potvrdená'],
-                    2 => ['class' => 'badge-cancelled', 'text' => 'Zrušená'],
+                    1 => ['class' => 'badge-new', 'text' => 'Nová'],
+                    2 => ['class' => 'badge-confirmed', 'text' => 'Potvrdená'],
+                    3 => ['class' => 'badge-cancelled', 'text' => 'Zrušená'],
                   ];
 
                 $status = (int) ($reservation['reservation_status_id'] ?? 1);
@@ -44,17 +44,17 @@
                     <?= $text ?>
                   </span>
 
-                  <?php if ($status === 0): ?>
+                  <?php if ($status === 1): ?>
 
                     <form method="POST" action="/admin/reservation/status" style="display:inline;">
-                      <input type="hidden" name="id" value="<?= $reservation['id'] ?>">
-                      <input type="hidden" name="status" value="1">
+                      <input type="hidden" name="id" value="<?= $reservation['reservation_id'] ?>">
+                      <input type="hidden" name="status" value="2">
                       <button class="btn btn-success">✔</button>
                     </form>
 
                     <form method="POST" action="/admin/reservation/status" style="display:inline;">
-                      <input type="hidden" name="id" value="<?= $reservation['id'] ?>">
-                      <input type="hidden" name="status" value="2">
+                      <input type="hidden" name="id" value="<?= $reservation['reservation_id'] ?>">
+                      <input type="hidden" name="status" value="3">
                         <button class="btn btn-danger">✖</button>
                       </form>
 
