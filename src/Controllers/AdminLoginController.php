@@ -12,6 +12,7 @@ class AdminLoginController
 
             if ($email === 'admin@bistro.sk' && password_verify($password, $_ENV['ADMIN_PASSWORD_HASH'])) {
 
+                session_regenerate_id(true);
                 $_SESSION['admin'] = true;
                 redirect('/admin');
             } else {

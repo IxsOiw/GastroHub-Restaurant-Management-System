@@ -6,7 +6,7 @@ class AdminLogoutController
 {
     public function index()
     {
-        $_SESSION['admin'] = false;
+        session_destroy();
         redirect('/admin-login');
     }
 }
