@@ -10,6 +10,7 @@ use Ixsaiw\Bistro\Controllers\AdminLoginController;
 use Ixsaiw\Bistro\Controllers\AdminLogoutController;
 use Ixsaiw\Bistro\Controllers\MenuAdminController;
 use Ixsaiw\Bistro\Controllers\OrderController;
+use Ixsaiw\Bistro\Controllers\AdminOrderController;
 
 return [
 
@@ -28,6 +29,8 @@ return [
     '/admin/menu/edit'    => [MenuAdminController::class, 'edit'],
     '/admin/menu/update'  => [MenuAdminController::class, 'update'],
     '/admin/menu/delete'  => [MenuAdminController::class, 'destroy'],
+    '/admin/orders'               => [AdminOrderController::class, 'index'],
+    '/admin/orders/update-status' => [AdminOrderController::class, 'updateStatus'],
     '/admin-login' => [AdminLoginController::class, 'index'],
     '/admin-logout' => [AdminLogoutController::class, 'index'],
 

@@ -20,9 +20,9 @@
       Menu
     </a>
  
-    <a href="/admin/spravy" class="sidebar-link">
+    <a href="/admin/orders" class="sidebar-link">
       <i class="bi bi-envelope"></i>
-      Správy
+      Objednavky
       <span class="sidebar-badge">7</span>
     </a>
  
