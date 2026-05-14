@@ -1,6 +1,7 @@
 <div class="card">
         <div class="card-header">
           <div class="card-title">Posledné rezervácie</div>
+          <a href="/admin/reservation/create" class="btn btn-success btn-sm">+ Nová rezervácia</a>
           <a href="/admin/rezervacie" class="btn btn-outline btn-sm">Všetky</a>
         </div>
         <table class="admin-table">
@@ -13,6 +14,7 @@
               <th>Osoby</th>
               <th>Dátum rezervácie</th>
               <th>Stav</th>
+              <th>Akcie</th>
             </tr>
           </thead>
 
@@ -57,17 +59,17 @@
                       <input type="hidden" name="status" value="3">
                         <button class="btn btn-danger">✖</button>
                       </form>
-
                     <?php endif; ?>
-
-                  <form method="POST" action="/admin/reservation/delete" style="display:inline;">
-                    <input type="hidden" name="id" value="<?= $reservation['reservation_id'] ?>">
-                    <button class="btn btn-danger btn-sm" onclick="return confirm('Naozaj zmazať rezerváciu?')">DELETE</button>
-                  </form>
-
-                  </div>
-                </td>
-              </tr>
+                    <td>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <a href="/admin/reservation/edit?id=<?= $reservation['reservation_id'] ?>" class="btn btn-outline btn-sm">Upraviť</a>
+                            <form method="POST" action="/admin/reservation/delete" style="display:inline;">
+                                <input type="hidden" name="id" value="<?= $reservation['reservation_id'] ?>">
+                                <button class="btn btn-danger btn-sm" onclick="return confirm('Naozaj zmazať rezerváciu?')">DELETE</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
             <?php endforeach; ?>
           </tbody>
         </table>

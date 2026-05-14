@@ -47,6 +47,11 @@ return [
   '/admin/menu/update'  => ['POST' => [MenuAdminController::class, 'update'],],
   '/admin/menu/delete'  => ['POST' => [MenuAdminController::class, 'destroy'],],
 
+  '/admin/reservation/create' => ['GET'  => [AdminController::class, 'createReservation']],
+  '/admin/reservation/store'  => ['POST' => [AdminController::class, 'storeReservation']],
+  '/admin/reservation/edit'   => ['GET'  => [AdminController::class, 'editReservation']],
+  '/admin/reservation/update' => ['POST' => [AdminController::class, 'updateReservation']],
+
   '/admin/orders'               => ['GET' => [AdminOrderController::class, 'index'],],
   '/admin/orders/update-status' => ['POST' => [AdminOrderController::class, 'updateStatus'],],
 
