@@ -2,7 +2,7 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
-class ContactController
+class ContactController extends BaseController
 {
     public function index()
     {

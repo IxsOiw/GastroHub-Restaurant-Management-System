@@ -2,7 +2,7 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
-class AboutController
+class AboutController extends BaseController
 {
     public function index()
     {
