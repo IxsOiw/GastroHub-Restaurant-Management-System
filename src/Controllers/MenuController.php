@@ -2,17 +2,8 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
-use Ixsaiw\Bistro\Database;
-
-class MenuController
+class MenuController extends BaseController
 {
-    protected Database $db;
-
-    public function __construct($config)
-    {
-        $this->db = new Database($config['database']);
-    }
-
     public function category()
     {
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

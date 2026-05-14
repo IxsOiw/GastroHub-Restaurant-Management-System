@@ -2,17 +2,8 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
-use Ixsaiw\Bistro\Database;
-
-class MenuAdminController
+class MenuAdminController extends BaseController
 {
-    protected Database $db;
-
-    public function __construct($config)
-    {
-        $this->db = new Database($config['database']);
-    }
-
     public function index()
     {
         if (empty($_SESSION['admin'])) {

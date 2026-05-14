@@ -2,17 +2,8 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
-use Ixsaiw\Bistro\Database;
-
-class ReservationController
+class ReservationController extends BaseController
 {
-    protected Database $db;
-
-    public function __construct($config)
-    {
-        $this->db = new Database($config['database']);
-    }
-
     public function index()
     {
         $heading = "reservation";
