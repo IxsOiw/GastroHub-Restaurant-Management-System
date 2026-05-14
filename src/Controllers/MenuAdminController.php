@@ -14,9 +14,10 @@ class MenuAdminController extends BaseController
 
         $items = $this->db->getAll(
             "SELECT f.*, fc.name AS category_name 
-             FROM food f
-             LEFT JOIN food_category fc ON f.food_category_id = fc.food_category_id
-             ORDER BY fc.name, f.name"
+            FROM food f
+            LEFT JOIN food_category fc ON f.food_category_id = fc.food_category_id
+            WHERE f.available = 1
+            ORDER BY fc.name, f.name"
         );
 
         require __DIR__ . '/../../views/admin.menu.view.php';
@@ -98,7 +99,7 @@ class MenuAdminController extends BaseController
 
         $id = $_POST['id'] ?? null;
         if ($id) {
-            $this->db->query("DELETE FROM food WHERE food_id = ?", [$id]);
+            $this->db->query("UPDATE food SET available = 0 WHERE food_id = ?", [$id]);
         }
 
         Helpers::redirect('/admin/menu');

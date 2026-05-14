@@ -35,13 +35,14 @@ class AdminController extends BaseController
         );
 
         $menuItemsCount = $this->db->get(
-            "SELECT COUNT(*) AS pocet FROM food"
+            "SELECT COUNT(*) AS pocet FROM food WHERE available = 1"
         );
 
         $items = $this->db->getAll(
             "SELECT f.*, fc.name AS category_name 
             FROM food f
             LEFT JOIN food_category fc ON f.food_category_id = fc.food_category_id
+            WHERE f.available = 1
             ORDER BY fc.name, f.name 
             LIMIT 10"
         );
