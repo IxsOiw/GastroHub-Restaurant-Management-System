@@ -2,6 +2,8 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
+use Ixsaiw\Bistro\Helpers;
+
 class OrderController extends BaseController
 {
     public function index()
@@ -24,9 +26,9 @@ class OrderController extends BaseController
 
     public function store()
     {
-        $name    = sanitize($_POST['name']  ?? '');
-        $phone   = sanitize($_POST['phone'] ?? '');
-        $email   = sanitize($_POST['email'] ?? '');
+        $name    = Helpers::sanitize($_POST['name']  ?? '');
+        $phone   = Helpers::sanitize($_POST['phone'] ?? '');
+        $email   = Helpers::sanitize($_POST['email'] ?? '');
         $items   = $_POST['items']          ?? [];
 
         $errors = [];

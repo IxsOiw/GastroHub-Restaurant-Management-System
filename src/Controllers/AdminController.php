@@ -2,13 +2,15 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
+use Ixsaiw\Bistro\Helpers;
+
 class AdminController extends BaseController
 {
     public function index()
     {
 
         if (empty($_SESSION['admin'])) {
-            redirect('/admin-login');
+            Helpers::redirect('/admin-login');
         }
 
         $reservations = $this->db->getAll(
@@ -50,14 +52,14 @@ class AdminController extends BaseController
     public function updateStatus()
     {
         if (empty($_SESSION['admin'])) {
-            redirect('/admin-login');
+            Helpers::redirect('/admin-login');
         }
 
         $id = $_POST['id'] ?? null;
         $status = $_POST['status'] ?? null;
 
         if ($id === null || $status === null) {
-            redirect('/admin');
+            Helpers::redirect('/admin');
         }
 
         $this->db->query(
@@ -65,18 +67,18 @@ class AdminController extends BaseController
             [$status, $id]
         );
 
-        redirect('/admin');
+        Helpers::redirect('/admin');
     }
     public function deleteReservation()
     {
         if (empty($_SESSION['admin'])) {
-            redirect('/admin');
+            Helpers::redirect('/admin');
         }
 
         $id = $_POST['id'] ?? null;
 
         if ($id === null) {
-            redirect('/admin');
+            Helpers::redirect('/admin');
         }
 
         $this->db->query(
@@ -84,6 +86,6 @@ class AdminController extends BaseController
             [$id]
         );
 
-        redirect('/admin');
+        Helpers::redirect('/admin');
     }
 }

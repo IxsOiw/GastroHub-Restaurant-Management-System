@@ -2,6 +2,8 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
+use Ixsaiw\Bistro\Helpers;
+
 class ReservationController extends BaseController
 {
     public function index()
@@ -20,15 +22,15 @@ class ReservationController extends BaseController
         $note = '';
         $tableId = '';
 
-        if (isPostRequest()) {
-            $name = sanitize($_POST['name'] ?? '');
-            $phone = sanitize($_POST['phone'] ?? '');
-            $email = sanitize($_POST['email'] ?? '');
-            $date = sanitize($_POST['date'] ?? '');
-            $time = sanitize($_POST['time'] ?? '');
-            $guests = sanitize($_POST['guests'] ?? '');
-            $note    = sanitize($_POST['note']      ?? '');
-            $tableId = sanitize($_POST['table_id']  ?? '');
+        if (Helpers::isPostRequest()) {
+            $name = Helpers::sanitize($_POST['name'] ?? '');
+            $phone = Helpers::sanitize($_POST['phone'] ?? '');
+            $email = Helpers::sanitize($_POST['email'] ?? '');
+            $date = Helpers::sanitize($_POST['date'] ?? '');
+            $time = Helpers::sanitize($_POST['time'] ?? '');
+            $guests = Helpers::sanitize($_POST['guests'] ?? '');
+            $note    = Helpers::sanitize($_POST['note']      ?? '');
+            $tableId = Helpers::sanitize($_POST['table_id']  ?? '');
 
             if ($name === '') {
                 $errors[] = 'Name is required.';

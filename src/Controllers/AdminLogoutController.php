@@ -2,11 +2,13 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
+use Ixsaiw\Bistro\Helpers;
+
 class AdminLogoutController
 {
     public function index()
     {
         session_destroy();
-        redirect('/admin-login');
+        Helpers::redirect('/admin-login');
     }
 }

@@ -2,12 +2,14 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
+use Ixsaiw\Bistro\Helpers;
+
 class MenuAdminController extends BaseController
 {
     public function index()
     {
         if (empty($_SESSION['admin'])) {
-            redirect('/admin-login');
+            Helpers::redirect('/admin-login');
         }
 
         $items = $this->db->getAll(
@@ -23,7 +25,7 @@ class MenuAdminController extends BaseController
     public function create()
     {
         if (empty($_SESSION['admin'])) {
-            redirect('/admin-login');
+            Helpers::redirect('/admin-login');
         }
 
         $categories = $this->db->getAll("SELECT * FROM food_category ORDER BY name");
@@ -33,13 +35,13 @@ class MenuAdminController extends BaseController
     public function store()
     {
         if (empty($_SESSION['admin'])) {
-            redirect('/admin-login');
+            Helpers::redirect('/admin-login');
         }
 
-        $name        = sanitize($_POST['name'] ?? '');
-        $description = sanitize($_POST['description'] ?? '');
+        $name        = Helpers::sanitize($_POST['name'] ?? '');
+        $description = Helpers::sanitize($_POST['description'] ?? '');
         $price       = (float) ($_POST['price'] ?? 0);
-        $categoryId    = sanitize($_POST['food_category_id'] ?? 0);
+        $categoryId    = Helpers::sanitize($_POST['food_category_id'] ?? 0);
         $available   = isset($_POST['available']) ? 1 : 0;
 
         $this->db->query(
@@ -47,18 +49,18 @@ class MenuAdminController extends BaseController
             [$name, $description, $price, $categoryId, $available]
         );
 
-        redirect('/admin/menu');
+        Helpers::redirect('/admin/menu');
     }
 
     public function edit()
     {
         if (empty($_SESSION['admin'])) {
-            redirect('/admin-login');
+            Helpers::redirect('/admin-login');
         }
 
         $id   = $_GET['id'] ?? null;
         if (!$id) {
-            redirect('/admin/menu');
+            Helpers::redirect('/admin/menu');
         }
 
         $item = $this->db->get("SELECT * FROM food WHERE food_id = ?", [$id]);
@@ -70,14 +72,14 @@ class MenuAdminController extends BaseController
     public function update()
     {
         if (empty($_SESSION['admin'])) {
-            redirect('/admin-login');
+            Helpers::redirect('/admin-login');
         }
 
         $id          = $_POST['id'] ?? null;
-        $name        = sanitize($_POST['name'] ?? '');
-        $description = sanitize($_POST['description'] ?? '');
+        $name        = Helpers::sanitize($_POST['name'] ?? '');
+        $description = Helpers::sanitize($_POST['description'] ?? '');
         $price       = (float) ($_POST['price'] ?? 0);
-        $categoryId    = sanitize($_POST['food_category_id'] ?? '');
+        $categoryId    = Helpers::sanitize($_POST['food_category_id'] ?? '');
         $available   = isset($_POST['available']) ? 1 : 0;
 
         $this->db->query(
@@ -85,13 +87,13 @@ class MenuAdminController extends BaseController
             [$name, $description, $price, $categoryId, $available, $id]
         );
 
-        redirect('/admin/menu');
+        Helpers::redirect('/admin/menu');
     }
 
     public function destroy()
     {
         if (empty($_SESSION['admin'])) {
-            redirect('/admin-login');
+            Helpers::redirect('/admin-login');
         }
 
         $id = $_POST['id'] ?? null;
@@ -99,6 +101,6 @@ class MenuAdminController extends BaseController
             $this->db->query("DELETE FROM food WHERE food_id = ?", [$id]);
         }
 
-        redirect('/admin/menu');
+        Helpers::redirect('/admin/menu');
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
+use Ixsaiw\Bistro\Helpers;
+
 class AdminLoginController
 {
     public function index()
@@ -14,7 +16,7 @@ class AdminLoginController
 
                 session_regenerate_id(true);
                 $_SESSION['admin'] = true;
-                redirect('/admin');
+                Helpers::redirect('/admin');
             } else {
                 $error = 'Nesprávne meno alebo heslo.';
             }

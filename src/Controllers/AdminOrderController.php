@@ -2,12 +2,14 @@
 
 namespace Ixsaiw\Bistro\Controllers;
 
+use Ixsaiw\Bistro\Helpers;
+
 class AdminOrderController extends BaseController
 {
     public function index()
     {
         if (empty($_SESSION['admin'])) {
-            redirect('/admin-login');
+            Helpers::redirect('/admin-login');
         }
 
         $orders = $this->db->getAll(
@@ -36,7 +38,7 @@ class AdminOrderController extends BaseController
     public function updateStatus()
     {
         if (empty($_SESSION['admin'])) {
-            redirect('/admin-login');
+            Helpers::redirect('/admin-login');
         }
 
         $orderId  = $_POST['order_id'] ?? null;
@@ -49,6 +51,6 @@ class AdminOrderController extends BaseController
             );
         }
 
-        redirect('/admin/orders');
+        Helpers::redirect('/admin/orders');
     }
 }
