@@ -27,21 +27,10 @@
       class="tw-mt-3 tw-flex tw-w-full tw-place-content-center tw-gap-[2%] max-md:tw-gap-[4%]"
     >
       <a
-        href="https://5"
-        target="_blank"
-        rel="noreferrer"
+        href="/order"
         class="tw-flex tw-rounded-full tw-bg-white tw-p-3 tw-px-[20px] tw-text-black tw-transition-colors tw-duration-[0.3s] hover:tw-bg-primary hover:tw-text-white"
       >
         Order online
-      </a>
-      <a
-        href="https://maps.app.goo.gl/"
-        target="_blank"
-        rel="noreferrer"
-        class="tw-flex tw-gap-2 tw-rounded-full tw-bg-white tw-p-3 tw-px-[20px] tw-text-black tw-transition-colors tw-duration-[0.3s] hover:tw-bg-primary hover:tw-text-white"
-      >
-        <span>View on map</span>
-        <i class="bi bi-geo-alt"></i>
       </a>
     </div>
   </div>
