@@ -40,9 +40,13 @@ class ReservationController extends BaseController
             }
             if ($email === '') {
                 $errors[] = 'Email is required.';
+            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $errors[] = 'Invalid email format.';
             }
             if ($date === '') {
                 $errors[] = 'Date is required.';
+            } elseif ($date < date('Y-m-d')) {
+                $errors[] = 'Date cannot be in the past.';
             }
             if ($time === '') {
                 $errors[] = 'Time is required.';
