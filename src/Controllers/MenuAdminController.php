@@ -42,7 +42,7 @@ class MenuAdminController extends BaseController
         $name        = Helpers::sanitize($_POST['name'] ?? '');
         $description = Helpers::sanitize($_POST['description'] ?? '');
         $price       = (float) ($_POST['price'] ?? 0);
-        $categoryId    = Helpers::sanitize($_POST['food_category_id'] ?? 0);
+        $categoryId    = Helpers::sanitize($_POST['food_category_id'] ?? '');
         $available   = isset($_POST['available']) ? 1 : 0;
 
         $this->db->query(
