@@ -1,6 +1,6 @@
  <div class="card">
       <div class="card-header">
-        <div class="card-title">Populárne položky menu</div>
+        <div class="card-title"> Dostupné položky menu</div>
       </div>
       <table class="admin-table">
         <thead>
