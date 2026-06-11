@@ -28,6 +28,10 @@ class AdminController extends BaseController
               WHERE DATE(created_at) = CURDATE()"
         );
 
+        $pendingReservations = $this->db->get(
+            "SELECT COUNT(*) AS pocet FROM reservation WHERE reservation_status_id = 1"
+        );
+
         $yesterdayReservations = $this->db->get(
             "SELECT COUNT(*) AS pocet 
             FROM reservation 

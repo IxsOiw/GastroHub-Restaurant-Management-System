@@ -19,7 +19,7 @@
       <div class="stat-card">
         <div class="stat-icon"><i class="bi bi-hourglass-split"></i></div>
         <div class="stat-label">Čakajúce</div>
-        <div class="stat-value">4</div>
+        <div class="stat-value"><?= $pendingReservations['pocet'] ?></div>
         <div class="stat-change">na potvrdenie</div>
       </div>
  
