@@ -53,4 +53,14 @@ class AdminOrderController extends BaseController
 
         Helpers::redirect('/admin/orders');
     }
+    public function delete()
+    {
+        $id = (int)($_POST['id'] ?? 0);
+        if ($id > 0) {
+            $this->db->query("DELETE FROM order_status_history WHERE order_id = ?", [$id]);
+            $this->db->query("DELETE FROM order_food WHERE order_id = ?", [$id]);
+            $this->db->query("DELETE FROM orders WHERE order_id = ?", [$id]);
+        }
+        Helpers::redirect('/admin/orders');
+    }
 }

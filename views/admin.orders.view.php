@@ -57,6 +57,10 @@
                                 </select>
                                 <button class="btn btn-primary btn-sm">Uložiť</button>
                             </form>
+                              <form method="POST" action="/admin/orders/delete" style="display:inline;">
+                                  <input type="hidden" name="id" value="<?= $order['order_id'] ?>">
+                                  <button class="btn btn-danger btn-sm" onclick="return confirm('Naozaj zmazať objednávku?')">DELETE</button>
+                              </form>
                         </td>
                     </tr>
                     <?php endforeach; ?>
