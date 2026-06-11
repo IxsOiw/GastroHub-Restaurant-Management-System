@@ -4,7 +4,7 @@ namespace Ixsaiw\Bistro\Controllers;
 
 use Ixsaiw\Bistro\Helpers;
 
-class AdminLoginController
+class AdminLoginController extends BaseController
 {
     public function index()
     {
