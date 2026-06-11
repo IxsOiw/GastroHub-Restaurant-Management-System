@@ -16,7 +16,6 @@ class MenuAdminController extends BaseController
             "SELECT f.*, fc.name AS category_name 
             FROM food f
             LEFT JOIN food_category fc ON f.food_category_id = fc.food_category_id
-            WHERE f.available = 1
             ORDER BY fc.name, f.name"
         );
 
