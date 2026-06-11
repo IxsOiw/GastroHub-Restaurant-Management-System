@@ -16,7 +16,6 @@
     <a href="/admin/orders" class="sidebar-link">
       <i class="bi bi-envelope"></i>
       Objednavky
-      <span class="sidebar-badge">7</span>
     </a>
  
     <div class="sidebar-footer">
