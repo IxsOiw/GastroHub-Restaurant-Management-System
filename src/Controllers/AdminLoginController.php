@@ -12,7 +12,7 @@ class AdminLoginController extends BaseController
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
 
-            if ($email === 'admin@bistro.sk' && password_verify($password, $_ENV['ADMIN_PASSWORD_HASH'])) {
+            if ($email === $_ENV['ADMIN_EMAIL'] && password_verify($password, $_ENV['ADMIN_PASSWORD_HASH'])) {
 
                 session_regenerate_id(true);
                 $_SESSION['admin'] = true;
