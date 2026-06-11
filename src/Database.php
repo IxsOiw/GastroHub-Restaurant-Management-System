@@ -6,7 +6,7 @@ use PDO;
 
 class Database
 {
-    public $connection;
+    private PDO $connection;
 
     public function __construct($database)
     {
