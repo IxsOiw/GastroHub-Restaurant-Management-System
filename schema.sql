@@ -100,6 +100,15 @@ CREATE TABLE order_status_history (
     FOREIGN KEY (order_status_id) REFERENCES order_status(order_status_id)
 );
 
+CREATE TABLE message (
+    message_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    message TEXT NOT NULL,
+    is_read TINYINT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Default data
 INSERT INTO reservation_status (name) VALUES ('Nová'), ('Potvrdená'), ('Zrušená');
 INSERT INTO order_status (name) VALUES ('Prijatá'), ('Pripravuje sa'), ('Doručená'), ('Zrušená');

@@ -30,6 +30,7 @@ return [
                       'POST' => [ReservationController::class, 'index'],],
 
   '/contact' => [ 'GET' => [ContactController::class, 'index'], ],
+  '/contact/store' => ['POST' => [ContactController::class, 'store'],],
 
   '/order'       => [ 'GET' => [OrderController::class, 'index'], ],
   '/order/store' => [ 'POST' => [OrderController::class, 'store'],  ],
@@ -55,6 +56,8 @@ return [
   '/admin/orders'               => ['GET' => [AdminOrderController::class, 'index'],],
   '/admin/orders/update-status' => ['POST' => [AdminOrderController::class, 'updateStatus'],],
   '/admin/orders/delete' => ['POST' => [AdminOrderController::class, 'delete'],],
+
+  '/admin/messages/delete' => ['POST' => [AdminController::class, 'deleteMessage']],
 
   '/admin-login' => ['GET' => [AdminLoginController::class, 'index'],
                       'POST' => [AdminLoginController::class, 'index'],],

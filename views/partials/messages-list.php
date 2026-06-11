@@ -1,38 +1,27 @@
 <div class="card">
-        <div class="card-header">
-          <div class="card-title">Správy od hostí</div>
-          <a href="/admin/spravy" class="btn btn-outline btn-sm">Všetky</a>
+    <div class="card-header">
+        <div class="card-title">Správy od hostí</div>
+    </div>
+    <div class="card-body">
+        <div class="msg-list">
+            <?php if (empty($messages)): ?>
+                <p style="color:#aaa; padding:16px;">Žiadne správy.</p>
+            <?php else: ?>
+                <?php foreach ($messages as $msg): ?>
+                    <div class="msg-item">
+                        <div class="msg-dot <?= $msg['is_read'] ? 'read' : '' ?>"></div>
+                        <div>
+                            <div class="msg-name"><?= htmlspecialchars($msg['name']) ?></div>
+                            <div class="msg-text"><?= htmlspecialchars($msg['message']) ?></div>
+                        </div>
+                        <div class="msg-time"><?= date('H:i', strtotime($msg['created_at'])) ?></div>
+                        <form method="POST" action="/admin/messages/delete" style="display:inline;">
+                            <input type="hidden" name="id" value="<?= $msg['message_id'] ?>">
+                            <button class="btn btn-danger btn-sm" onclick="return confirm('Zmazať správu?')">✖</button>
+                        </form>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
-        <div class="card-body">
-          <div class="msg-list">
- 
-            <div class="msg-item">
-              <div class="msg-dot"></div>
-              <div>
-                <div class="msg-name">Anna Slováková</div>
-                <div class="msg-text">Môžeme dostať stôl pri okne na piatok?</div>
-              </div>
-              <div class="msg-time">13:42</div>
-            </div>
- 
-            <div class="msg-item">
-              <div class="msg-dot"></div>
-              <div>
-                <div class="msg-name">Tomáš Krajčí</div>
-                <div class="msg-text">Otázka ohľadom alergénov v menu...</div>
-              </div>
-              <div class="msg-time">11:15</div>
-            </div>
- 
-            <div class="msg-item">
-              <div class="msg-dot read"></div>
-              <div>
-                <div class="msg-name" style="opacity:.65">Lucia Malá</div>
-                <div class="msg-text">Skvelý zážitok, určite sa vrátime!</div>
-              </div>
-              <div class="msg-time">včera</div>
-            </div>
- 
-          </div>
-        </div>
-      </div>
+    </div>
+</div>

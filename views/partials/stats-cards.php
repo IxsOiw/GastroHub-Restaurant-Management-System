@@ -33,8 +33,7 @@
       <div class="stat-card">
         <div class="stat-icon"><i class="bi bi-envelope-open"></i></div>
         <div class="stat-label">Nové správy</div>
-        <div class="stat-value">7</div>
-        <div class="stat-change down">neprečítané</div>
+        <div class="stat-value"><?= $unreadMessages['pocet'] ?></div>
       </div>
  
     </div>

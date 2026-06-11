@@ -17,3 +17,4 @@ public/.php-cs-fixer.cache
 
 # Tailwind runtime
 tailwind-runtime.css
+.DS_Store

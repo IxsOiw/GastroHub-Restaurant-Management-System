@@ -51,6 +51,14 @@ class AdminController extends BaseController
             LIMIT 10"
         );
 
+        $messages = $this->db->getAll(
+            "SELECT * FROM message ORDER BY created_at DESC LIMIT 5"
+        );
+
+        $unreadMessages = $this->db->get(
+            "SELECT COUNT(*) AS pocet FROM message WHERE is_read = 0"
+        );
+
         $heading = "Admin";
         require __DIR__ . '/../../views/admin.view.php';
     }
@@ -186,6 +194,15 @@ class AdminController extends BaseController
             [$tableId, $date, $time, $guests, $note, $id]
         );
 
+        Helpers::redirect('/admin');
+    }
+
+    public function deleteMessage()
+    {
+        $id = (int)($_POST['id'] ?? 0);
+        if ($id > 0) {
+            $this->db->query("DELETE FROM message WHERE message_id = ?", [$id]);
+        }
         Helpers::redirect('/admin');
     }
 }
