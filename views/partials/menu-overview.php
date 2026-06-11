@@ -1,10 +1,6 @@
  <div class="card">
       <div class="card-header">
         <div class="card-title">Populárne položky menu</div>
-        <button class="btn btn-primary btn-sm">
-          <i class="bi bi-plus-lg"></i>
-          Pridať položku
-        </button>
       </div>
       <table class="admin-table">
         <thead>

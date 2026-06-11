@@ -2,7 +2,6 @@
         <div class="card-header">
           <div class="card-title">Posledné rezervácie</div>
           <a href="/admin/reservation/create" class="btn btn-success btn-sm">+ Nová rezervácia</a>
-          <a href="/admin/rezervacie" class="btn btn-outline btn-sm">Všetky</a>
         </div>
         <table class="admin-table">
 

@@ -7,13 +7,6 @@
       Dashboard
     </a>
  
-    <span class="sidebar-section-label">Správa</span>
- 
-    <a href="/admin/rezervacie" class="sidebar-link">
-      <i class="bi bi-calendar-check"></i>
-      Rezervácie
-      <span class="sidebar-badge">4</span>
-    </a>
  
     <a href="/admin/menu" class="sidebar-link">
       <i class="bi bi-menu-button-wide"></i>
@@ -24,13 +17,6 @@
       <i class="bi bi-envelope"></i>
       Objednavky
       <span class="sidebar-badge">7</span>
-    </a>
- 
-    <span class="sidebar-section-label">Systém</span>
- 
-    <a href="/admin/nastavenia" class="sidebar-link">
-      <i class="bi bi-gear"></i>
-      Nastavenia
     </a>
  
     <div class="sidebar-footer">
