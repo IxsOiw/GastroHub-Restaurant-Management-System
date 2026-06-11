@@ -5,7 +5,7 @@ Web aplikácia pre reštauráciu s rezervačným systémom, menu a admin panelom
 ## Požiadavky
 
 - PHP 8.0+
-- MySQL 5.7+ alebo MariaDB 10.3+
+- MySQL 8.0+ alebo MariaDB 10.3+
 - Composer
 - Node.js + npm (len pre úpravu CSS/Tailwind)
 - Apache s mod_rewrite (alebo ekvivalentný webserver)
