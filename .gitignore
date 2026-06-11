@@ -1,8 +1,19 @@
-.DS_Store
-node_modules/
+# Environment
 .env
-.vscode/
-.idea/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Dependencies
+vendor/
+node_modules/
+
+# Logs & cache
 *.log
 *.cache
-vendor/
+.php-cs-fixer.cache
+public/.php-cs-fixer.cache
+
+# Tailwind runtime
+tailwind-runtime.css
